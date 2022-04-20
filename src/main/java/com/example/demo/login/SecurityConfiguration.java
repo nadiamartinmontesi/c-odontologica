@@ -26,11 +26,11 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
                 .authorizeRequests()
                 //.antMatchers("/usuario/**").permitAll()
                 //.antMatchers("/user/**").permitAll()
-                //.antMatchers("/odontologos/**", "/pacientes/**", "/turnos/**").hasAuthority(RolesUsuario.ROLE_ADMIN.name())
+                .antMatchers("/odontologos/**", "/pacientes/**", "/turnos/**").hasAuthority(RolesUsuario.ROLE_ADMIN.name())
                 .antMatchers("/turnos/**").hasAnyAuthority(RolesUsuario.ROLE_ADMIN.name(), RolesUsuario.ROLE_USER.name())
-                //.anyRequest()
-                .anyRequest().hasAuthority(RolesUsuario.ROLE_ADMIN.name())
-                //.authenticated()
+                .anyRequest()
+                //.anyRequest().hasAuthority(RolesUsuario.ROLE_ADMIN.name())
+                .authenticated()
                 .and()
                 .httpBasic();
 
