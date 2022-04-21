@@ -4,19 +4,16 @@ import com.example.demo.exceptions.NotFoundException;
 import com.example.demo.model.DomicilioDTO;
 import com.example.demo.model.PacienteDTO;
 import com.example.demo.persistence.entities.Domicilio;
-import com.example.demo.persistence.entities.Paciente;
 import com.example.demo.service.DomicilioService;
 import com.example.demo.service.PacienteService;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import org.junit.BeforeClass;
-import org.junit.jupiter.api.*;
+import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 
 import java.sql.Date;
 
-import static org.junit.jupiter.api.Assertions.*;
 
 @SpringBootTest
 class PacienteServiceTest {
@@ -81,7 +78,7 @@ class PacienteServiceTest {
 
         pacienteService.deleteById(pacienteDtoCreado2.getId());
 
-        Assertions.assertTrue(pacienteService.findById(pacienteDtoCreado2.getId()).equals(new NotFoundException("No existe un paciente con el id:2")));
+        Assertions.assertThrows(NotFoundException.class, ()-> {pacienteService.findById(pacienteDtoCreado2.getId());});
     }
 
 }

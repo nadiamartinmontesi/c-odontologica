@@ -20,7 +20,6 @@ import org.springframework.boot.test.context.SpringBootTest;
 
 import java.sql.Date;
 
-import static org.junit.jupiter.api.Assertions.*;
 
 @SpringBootTest
 class TurnoTest {
@@ -83,7 +82,7 @@ class TurnoTest {
 
         turnoService.deleteById(turnoCreado.getId());
 
-        Assertions.assertTrue(turnoService.findById(turnoCreado.getId()) == null);
+        Assertions.assertThrows(NotFoundException.class, ()-> {turnoService.findById(turnoCreado.getId());});
     }
 
 }
