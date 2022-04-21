@@ -1,6 +1,6 @@
 package com.example.demo.controller;
 
-//import com.example.demo.exceptions.NotFoundException;
+import com.example.demo.exceptions.NotFoundException;
 import com.example.demo.model.OdontologoDTO;
 import com.example.demo.model.PacienteDTO;
 import com.example.demo.persistence.entities.Odontologo;
@@ -31,12 +31,12 @@ public class OdontologoController {
     }
 
     @GetMapping("/{id}")
-    public ResponseEntity<OdontologoDTO> findById(@PathVariable Integer id) /*throws NotFoundException*/{
+    public ResponseEntity<OdontologoDTO> findById(@PathVariable Integer id) throws NotFoundException{
         return ResponseEntity.ok(odontologoService.findById(id));
     }
 
     @PutMapping()
-    public ResponseEntity<OdontologoDTO> update(@RequestBody OdontologoDTO odontologoDTO) /*throws NotFoundException*/{
+    public ResponseEntity<OdontologoDTO> update(@RequestBody OdontologoDTO odontologoDTO) throws NotFoundException{
         ResponseEntity<OdontologoDTO> response = null;
 
         if (odontologoDTO.getId() != null && odontologoService.findById(odontologoDTO.getId()) != null)
@@ -48,7 +48,7 @@ public class OdontologoController {
     }
 
     @DeleteMapping("/{id}")
-    public ResponseEntity<String> deleteById(@PathVariable Integer id) /*throws NotFoundException*/ {
+    public ResponseEntity<String> deleteById(@PathVariable Integer id) throws NotFoundException {
         odontologoService.deleteById(id);
         return ResponseEntity.status(HttpStatus.OK).body("Eliminado");
     }

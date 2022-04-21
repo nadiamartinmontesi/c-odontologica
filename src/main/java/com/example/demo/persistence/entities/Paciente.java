@@ -25,8 +25,8 @@ public class Paciente {
     private String dni;
     private Date fechaIngreso;
 
-    @OneToOne
-    @JoinColumn(name="domicilio_id", referencedColumnName = "id", nullable = false)
+    @OneToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name="domicilio_id", referencedColumnName = "id")
     private Domicilio domicilio;
 
     @OneToMany(mappedBy = "paciente", cascade = CascadeType.ALL)

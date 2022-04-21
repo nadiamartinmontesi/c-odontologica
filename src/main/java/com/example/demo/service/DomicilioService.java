@@ -1,7 +1,7 @@
 package com.example.demo.service;
 
 
-//import com.example.demo.exceptions.NotFoundException;
+import com.example.demo.exceptions.NotFoundException;
 import com.example.demo.model.DomicilioDTO;
 import com.example.demo.persistence.entities.Domicilio;
 import com.example.demo.persistence.repository.IDomicilioRepository;
@@ -52,21 +52,21 @@ public class DomicilioService implements ImplService<DomicilioDTO> {
     }
 
     @Override
-    public void deleteById(Integer id) /*throws NotFoundException*/{
+    public void deleteById(Integer id) throws NotFoundException{
         if (findById(id) != null)
             domicilioRepository.deleteById(id);
     }
 
     @Override
-    public DomicilioDTO findById(Integer id) /*throws NotFoundException*/{
+    public DomicilioDTO findById(Integer id) throws NotFoundException{
 
         Optional<Domicilio> domicilio = domicilioRepository.findById(id);
         DomicilioDTO domicilioDTO = null;
         if (domicilio.isPresent()){
             domicilioDTO = mapper.convertValue(domicilio, DomicilioDTO.class);
-        } /*else {
+        } else {
             throw new NotFoundException("No existe un domicilio con el id:" + id);
-        }*/
+        }
 
         return domicilioDTO;
 

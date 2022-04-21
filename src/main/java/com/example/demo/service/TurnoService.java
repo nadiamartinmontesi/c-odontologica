@@ -1,6 +1,6 @@
 package com.example.demo.service;
 
-//import com.example.demo.exceptions.NotFoundException;
+import com.example.demo.exceptions.NotFoundException;
 import com.example.demo.model.TurnoDTO;
 import com.example.demo.persistence.entities.Turno;
 import com.example.demo.persistence.repository.ITurnoRepository;
@@ -48,20 +48,20 @@ public class TurnoService implements ImplService<TurnoDTO>{
     }
 
     @Override
-    public void deleteById(Integer id) /*throws NotFoundException*/ {
+    public void deleteById(Integer id) throws NotFoundException {
         if (findById(id) != null)
             turnoRepository.deleteById(id);
     }
 
     @Override
-    public TurnoDTO findById(Integer id) /*throws NotFoundException*/{
+    public TurnoDTO findById(Integer id) throws NotFoundException{
         Optional<Turno> turno = turnoRepository.findById(id);
         TurnoDTO turnoDTO = null;
         if (turno.isPresent()){
             turnoDTO = mapper.convertValue(turno, TurnoDTO.class);
-        } /*else {
+        } else {
             throw new NotFoundException("No existe un turno con el id:" + id);
-        }*/
+        }
 
         return turnoDTO;
     }

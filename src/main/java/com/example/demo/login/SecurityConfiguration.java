@@ -20,17 +20,15 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
     @Autowired
     private BCryptPasswordEncoder bCryptPasswordEncoder;
 
-    //prueba
     @Override
     protected void configure(HttpSecurity http) throws Exception {
+        http.headers().frameOptions().disable();
         http.csrf().disable()
                 .authorizeRequests()
-                //.antMatchers("/usuario/**").permitAll()
-                //.antMatchers("/user/**").permitAll()
+                .antMatchers("/h2-console/**").permitAll()
                 .antMatchers("/odontologos/**", "/pacientes/**", "/turnos/**").hasAuthority(RolesUsuario.ROLE_ADMIN.name())
                 .antMatchers("/turnos/**").hasAnyAuthority(RolesUsuario.ROLE_ADMIN.name(), RolesUsuario.ROLE_USER.name())
                 .anyRequest()
-                //.anyRequest().hasAuthority(RolesUsuario.ROLE_ADMIN.name())
                 .authenticated()
                 .and()
                 .httpBasic();
