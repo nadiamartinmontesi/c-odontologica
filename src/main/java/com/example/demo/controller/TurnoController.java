@@ -1,6 +1,6 @@
 package com.example.demo.controller;
 
-import com.example.demo.exceptions.NotFoundException;
+//import com.example.demo.exceptions.NotFoundException;
 import com.example.demo.exceptions.TurnoBeforeDateException;
 import com.example.demo.model.TurnoDTO;
 import com.example.demo.service.TurnoService;
@@ -35,12 +35,12 @@ public class TurnoController {
     }
 
     @GetMapping("/{id}")
-    public ResponseEntity<TurnoDTO> findById(@PathVariable Integer id) throws NotFoundException{
+    public ResponseEntity<TurnoDTO> findById(@PathVariable Integer id) /*throws NotFoundException*/{
         return ResponseEntity.ok(turnoService.findById(id));
     }
 
     @PutMapping
-    public ResponseEntity<TurnoDTO> update(TurnoDTO turnoDTO) throws NotFoundException {
+    public ResponseEntity<TurnoDTO> update(TurnoDTO turnoDTO) /*throws NotFoundException*/ {
         ResponseEntity<TurnoDTO> response = null;
 
         if (turnoDTO.getId() != null && turnoService.findById(turnoDTO.getId()) != null){
@@ -53,7 +53,7 @@ public class TurnoController {
     }
 
     @DeleteMapping("/{id}")
-    public ResponseEntity<String> deleteById(@PathVariable Integer id) throws NotFoundException{
+    public ResponseEntity<String> deleteById(@PathVariable Integer id) /*throws NotFoundException*/{
         turnoService.deleteById(id);
         return ResponseEntity.status(HttpStatus.OK).body("Eliminado");
     }

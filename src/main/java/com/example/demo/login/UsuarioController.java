@@ -1,4 +1,4 @@
-/*package com.example.demo.login;
+package com.example.demo.login;
 
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -21,4 +21,4 @@ public class UsuarioController {
         return "<h2> Bienvenido Admin! </h2>";
     }
 
-}*/
+}

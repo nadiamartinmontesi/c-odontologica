@@ -1,6 +1,6 @@
 package com.example.demo.service;
 
-import com.example.demo.exceptions.NotFoundException;
+//import com.example.demo.exceptions.NotFoundException;
 import com.example.demo.model.OdontologoDTO;
 import com.example.demo.model.PacienteDTO;
 import com.example.demo.persistence.entities.Odontologo;
@@ -48,20 +48,20 @@ public class OdontologoService implements ImplService<OdontologoDTO>{
 
 
     @Override
-    public OdontologoDTO findById(Integer id) throws NotFoundException{
+    public OdontologoDTO findById(Integer id) /*throws NotFoundException*/{
         Optional<Odontologo> odontologo = odontologoRepository.findById(id);
         OdontologoDTO odontologoDTO = null;
         if (odontologo.isPresent()) {
             odontologoDTO = mapper.convertValue(odontologo, OdontologoDTO.class);
-        } else {
+        } /*else {
             throw new NotFoundException("No existe un odontólogo con el id:" + id);
-        }
+        }*/
 
         return odontologoDTO;
     }
 
     @Override
-    public void deleteById(Integer id) throws NotFoundException{
+    public void deleteById(Integer id) /*throws NotFoundException*/{
         if (findById(id) != null)
             odontologoRepository.deleteById(id);
     }

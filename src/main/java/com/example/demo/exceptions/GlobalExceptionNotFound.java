@@ -1,4 +1,4 @@
-package com.example.demo.exceptions;
+/*package com.example.demo.exceptions;
 
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -12,4 +12,4 @@ public class GlobalExceptionNotFound {
     public ResponseEntity procesarErrorNotFound(NotFoundException ex){
         return ResponseEntity.status(HttpStatus.NOT_FOUND).body(ex.getMessage());
     }
-}
+}*/

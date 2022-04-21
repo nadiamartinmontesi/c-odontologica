@@ -1,7 +1,7 @@
 package com.example.demo.controller;
 
 
-import com.example.demo.exceptions.NotFoundException;
+//import com.example.demo.exceptions.NotFoundException;
 import com.example.demo.model.PacienteDTO;
 import com.example.demo.service.PacienteService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -31,12 +31,12 @@ public class PacienteController {
     }
 
     @GetMapping("/{id}")
-    public ResponseEntity<PacienteDTO> findById(@PathVariable Integer id) throws NotFoundException{
+    public ResponseEntity<PacienteDTO> findById(@PathVariable Integer id) /*throws NotFoundException*/{
         return ResponseEntity.ok(pacienteService.findById(id));
     }
 
     @PutMapping
-    public ResponseEntity<PacienteDTO> update(@RequestBody PacienteDTO pacienteDTO) throws NotFoundException {
+    public ResponseEntity<PacienteDTO> update(@RequestBody PacienteDTO pacienteDTO) /*throws NotFoundException*/ {
         ResponseEntity<PacienteDTO> response = null;
 
         if (pacienteDTO.getId() != null && pacienteService.findById(pacienteDTO.getId()) != null)
@@ -48,7 +48,7 @@ public class PacienteController {
     }
 
     @DeleteMapping("/{id}")
-    public ResponseEntity<String> deleteById(@PathVariable Integer id) throws NotFoundException{
+    public ResponseEntity<String> deleteById(@PathVariable Integer id) /*throws NotFoundException*/{
         pacienteService.deleteById(id);
         return ResponseEntity.status(HttpStatus.OK).body("Eliminado");
     }

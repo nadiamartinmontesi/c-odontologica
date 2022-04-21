@@ -1,4 +1,4 @@
-package com.example.demo;
+/*package com.example.demo;
 
 import com.example.demo.exceptions.NotFoundException;
 import com.example.demo.model.DomicilioDTO;
@@ -85,4 +85,4 @@ class TurnoTest {
         Assertions.assertThrows(NotFoundException.class, ()-> {turnoService.findById(turnoCreado.getId());});
     }
 
-}
+}*/
