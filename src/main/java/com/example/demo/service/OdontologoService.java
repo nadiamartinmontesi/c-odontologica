@@ -2,9 +2,7 @@ package com.example.demo.service;
 
 import com.example.demo.exceptions.NotFoundException;
 import com.example.demo.model.OdontologoDTO;
-import com.example.demo.model.PacienteDTO;
 import com.example.demo.persistence.entities.Odontologo;
-import com.example.demo.persistence.entities.Paciente;
 import com.example.demo.persistence.repository.IOdontologoRepository;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -45,8 +43,6 @@ public class OdontologoService implements ImplService<OdontologoDTO>{
         return odontologoDTOList;
     }
 
-
-
     @Override
     public OdontologoDTO findById(Integer id) throws NotFoundException{
         Optional<Odontologo> odontologo = odontologoRepository.findById(id);
@@ -71,7 +67,4 @@ public class OdontologoService implements ImplService<OdontologoDTO>{
         return save(odontologoDTO);
     }
 
-    /*public List<Odontologo> getOdontologosByNombre(String nombre){
-        return odontologoRepository.getOdontologosByNombre(nombre);
-    }*/
 }

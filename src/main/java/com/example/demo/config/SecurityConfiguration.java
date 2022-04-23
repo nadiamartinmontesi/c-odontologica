@@ -28,10 +28,9 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
         http.csrf().disable()
                 .authorizeRequests()
                 .antMatchers("/h2-console/**").permitAll()
-                .antMatchers("/odontologos/**", "/pacientes/**", "/turnos/**").hasAuthority(RolesUsuario.ROLE_ADMIN.name())
-                .antMatchers("/turnos/**").hasAnyAuthority(RolesUsuario.ROLE_ADMIN.name(), RolesUsuario.ROLE_USER.name())
-                .anyRequest()
-                .authenticated()
+                .antMatchers("/odontologos/**", "/pacientes/**").hasAuthority(RolesUsuario.ROLE_ADMIN.name())
+                .antMatchers("/turnos").hasAnyAuthority(RolesUsuario.ROLE_ADMIN.name(), RolesUsuario.ROLE_USER.name())
+                .anyRequest().authenticated()
                 .and()
                 .httpBasic();
 

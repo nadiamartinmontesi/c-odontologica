@@ -1,11 +1,8 @@
 package com.example.demo.service;
 
 import com.example.demo.exceptions.NotFoundException;
-import com.example.demo.model.DomicilioDTO;
 import com.example.demo.model.PacienteDTO;
-import com.example.demo.persistence.entities.Domicilio;
 import com.example.demo.persistence.entities.Paciente;
-import com.example.demo.persistence.repository.IDomicilioRepository;
 import com.example.demo.persistence.repository.IPacienteRepository;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -19,13 +16,6 @@ import java.util.Set;
 
 @Service
 public class PacienteService implements ImplService<PacienteDTO>{
-
-    private IDomicilioRepository domicilioRepository;
-
-    @Autowired
-    public void setDomicilioRepository(IDomicilioRepository domicilioRepository){
-        this.domicilioRepository = domicilioRepository;
-    }
 
     private IPacienteRepository pacienteRepository;
 

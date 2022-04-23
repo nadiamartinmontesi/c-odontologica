@@ -14,9 +14,11 @@ import java.util.Set;
 
 @RestController
 @RequestMapping("/turnos")
+//@CrossOrigin(origins = "*") para el cors del front
 public class TurnoController {
 
     Date fechaActual = new Date(System.currentTimeMillis());
+
     private TurnoService turnoService;
 
     @Autowired

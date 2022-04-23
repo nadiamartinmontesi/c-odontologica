@@ -22,6 +22,7 @@ public class Usuario implements UserDetails {
     private Integer id;
     private String username;
     private String password;
+
     @Enumerated(EnumType.STRING)
     private RolesUsuario rolesUsuario;
 

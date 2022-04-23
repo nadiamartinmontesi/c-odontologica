@@ -10,11 +10,10 @@ import org.springframework.stereotype.Service;
 @Service
 public class UsuarioService implements UserDetailsService {
 
-    private final UsarioRepository usuarioRepository;
+    private UsarioRepository usuarioRepository;
 
-    //cambiamos el set por un constructor y agregamos el final en el atributo
     @Autowired
-    public UsuarioService(UsarioRepository usuarioRepository) {
+    public void setUsuarioRepository(UsarioRepository usuarioRepository){
         this.usuarioRepository = usuarioRepository;
     }
 
@@ -22,4 +21,5 @@ public class UsuarioService implements UserDetailsService {
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
         return usuarioRepository.findByUsername(username).orElseThrow(() -> new UsernameNotFoundException("El usuario no fue encontrado."));
     }
+
 }

@@ -14,6 +14,7 @@ import java.util.Set;
 
 @RestController
 @RequestMapping("/pacientes")
+//@CrossOrigin(origins = "*") para el cors del front
 public class PacienteController {
 
     private PacienteService pacienteService;

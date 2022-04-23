@@ -8,7 +8,6 @@ import com.example.demo.model.TurnoDTO;
 import com.example.demo.persistence.entities.Domicilio;
 import com.example.demo.persistence.entities.Odontologo;
 import com.example.demo.persistence.entities.Paciente;
-import com.example.demo.service.DomicilioService;
 import com.example.demo.service.OdontologoService;
 import com.example.demo.service.PacienteService;
 import com.example.demo.service.TurnoService;
@@ -30,12 +29,6 @@ class TurnoTest {
         this.turnoService = turnoService;
     }
 
-    private DomicilioService domicilioService;
-    @Autowired
-    public void setDomicilioService(DomicilioService domicilioService){
-        this.domicilioService = domicilioService;
-    }
-
     private PacienteService pacienteService;
     @Autowired
     public void setPacienteService(PacienteService pacienteService){
@@ -53,9 +46,8 @@ class TurnoTest {
 
   @Test
     void crearYBuscarTurno() throws NotFoundException {
-        DomicilioDTO domicilioDto1 = new DomicilioDTO("Monroe", "5241", "caba", "caba");
-        DomicilioDTO domicilioDtoCreado = domicilioService.save(domicilioDto1);
-        PacienteDTO pacienteDto1 = new PacienteDTO("Julian", "Rios", "32569874", new Date(2022,04,02), mapper.convertValue(domicilioDtoCreado, Domicilio.class));
+
+        PacienteDTO pacienteDto1 = new PacienteDTO("Julian", "Rios", "32569874", new Date(2022,04,02), mapper.convertValue(new DomicilioDTO("Monroe", "5241", "caba", "caba"), Domicilio.class));
         PacienteDTO pacienteCreado = pacienteService.save(pacienteDto1);
 
         OdontologoDTO odontologoDto1 = new OdontologoDTO("Susana", "Morales", 568410);
@@ -69,9 +61,8 @@ class TurnoTest {
 
     @Test
     void eliminarTurno() throws NotFoundException {
-        DomicilioDTO domicilioDto1 = new DomicilioDTO("Arcos", "2576", "caba", "caba");
-        DomicilioDTO domicilioDtoCreado = domicilioService.save(domicilioDto1);
-        PacienteDTO pacienteDto1 = new PacienteDTO("Marcos", "Diaz", "12900899", new Date(2020,02,27), mapper.convertValue(domicilioDtoCreado, Domicilio.class));
+
+        PacienteDTO pacienteDto1 = new PacienteDTO("Marcos", "Diaz", "12900899", new Date(2020,02,27), mapper.convertValue(new DomicilioDTO("Arcos", "2576", "caba", "caba"), Domicilio.class));
         PacienteDTO pacienteCreado = pacienteService.save(pacienteDto1);
 
         OdontologoDTO odontologoDto1 = new OdontologoDTO("Cecilia", "Rosales", 676876);

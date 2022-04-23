@@ -2,15 +2,12 @@ package com.example.demo.controller;
 
 import com.example.demo.exceptions.NotFoundException;
 import com.example.demo.model.OdontologoDTO;
-import com.example.demo.model.PacienteDTO;
-import com.example.demo.persistence.entities.Odontologo;
 import com.example.demo.service.OdontologoService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.List;
 import java.util.Set;
 
 @RestController
@@ -63,8 +60,4 @@ public class OdontologoController {
         }
     }
 
-    /*@GetMapping("/porNombre/{nombre}")
-    public ResponseEntity<List<Odontologo>> getOdontologosByNombre(@PathVariable String nombre){
-        return ResponseEntity.ok(odontologoService.getOdontologosByNombre(nombre));
-    }*/
 }
