@@ -15,6 +15,7 @@ import java.util.Set;
 
 @RestController
 @RequestMapping("/odontologos")
+//@CrossOrigin(origins = "*") para el cors del front
 public class OdontologoController {
     private OdontologoService odontologoService;
 

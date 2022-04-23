@@ -1,5 +1,7 @@
-package com.example.demo.login;
+package com.example.demo.config;
 
+import com.example.demo.persistence.entities.RolesUsuario;
+import com.example.demo.service.UsuarioService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;

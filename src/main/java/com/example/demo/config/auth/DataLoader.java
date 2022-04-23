@@ -1,5 +1,8 @@
-package com.example.demo.login;
+package com.example.demo.config.auth;
 
+import com.example.demo.persistence.entities.RolesUsuario;
+import com.example.demo.persistence.entities.Usuario;
+import com.example.demo.persistence.repository.UsarioRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.ApplicationArguments;
 import org.springframework.boot.ApplicationRunner;

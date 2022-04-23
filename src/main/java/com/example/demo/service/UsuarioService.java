@@ -1,5 +1,6 @@
-package com.example.demo.login;
+package com.example.demo.service;
 
+import com.example.demo.persistence.repository.UsarioRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;

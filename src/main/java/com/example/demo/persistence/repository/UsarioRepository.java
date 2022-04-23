@@ -1,5 +1,6 @@
-package com.example.demo.login;
+package com.example.demo.persistence.repository;
 
+import com.example.demo.persistence.entities.Usuario;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Repository;

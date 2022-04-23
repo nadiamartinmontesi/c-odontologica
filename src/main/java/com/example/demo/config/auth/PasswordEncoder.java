@@ -1,4 +1,4 @@
-package com.example.demo.login;
+package com.example.demo.config.auth;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;

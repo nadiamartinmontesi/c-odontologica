@@ -1,4 +1,4 @@
-package com.example.demo.login;
+package com.example.demo.persistence.entities;
 
 import lombok.Getter;
 import lombok.Setter;

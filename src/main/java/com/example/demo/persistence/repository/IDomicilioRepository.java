@@ -11,6 +11,4 @@ import java.util.Optional;
 
 @Repository
 public interface IDomicilioRepository extends JpaRepository<Domicilio, Integer> {
-    //@Query("from Pacientes p where p.domicilio_id = :domicilio_id")
-    //Optional<Paciente> gePacienteByDomicilioId(@Param("domicilio_id") Integer idDomicilio);
 }
