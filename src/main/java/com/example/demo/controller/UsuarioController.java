@@ -1,4 +1,5 @@
-package com.example.demo.controller;
+// COMENTAMOS EL CONTROLLER DEL USUARIO PARA QUE FUNCIONE EL FRONT
+/*package com.example.demo.controller;
 
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -22,4 +23,4 @@ public class UsuarioController {
         return "<h2> Bienvenido Admin! </h2>";
     }
 
-}
+}*/
