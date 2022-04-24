@@ -63,4 +63,9 @@ public class PacienteController {
         }
 
     }
+
+    @GetMapping("/domicilio/{id}")
+    public ResponseEntity<PacienteDTO> findPacienteByDomicilioId(@PathVariable Integer id){
+        return ResponseEntity.ok(pacienteService.gePacienteByDomicilioId(id));
+    }
 }

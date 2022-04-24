@@ -73,4 +73,10 @@ public class PacienteService implements ImplService<PacienteDTO>{
     public PacienteDTO update(PacienteDTO pacienteDTO) {
         return save(pacienteDTO);
     }
+
+    public PacienteDTO gePacienteByDomicilioId(Integer id){
+        Paciente paciente = pacienteRepository.getPacienteByDomicilioId(id).get();
+        PacienteDTO pacienteDTO = mapper.convertValue(paciente, PacienteDTO.class);
+        return pacienteDTO;
+    }
 }
